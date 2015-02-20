@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (CeeKit)
+
 - (NSString *)URLEncodedString;
 - (NSString *)URLDecodedString;
+
 @end
