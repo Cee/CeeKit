@@ -19,5 +19,6 @@ typedef unsigned int CeeColorType;
 
 - (UIColor *)darkenWithAmount:(double)amount;
 - (UIColor *)lightenWithAmount:(double)amount;
+- (UIColor *)mixWithColor:(UIColor *)color;
 
 @end

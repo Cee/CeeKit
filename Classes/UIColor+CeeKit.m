@@ -84,4 +84,30 @@
     return lightenColor;
 }
 
+- (UIColor *)mixWithColor:(UIColor *)color
+{
+    const CGFloat *colors = CGColorGetComponents(self.CGColor);
+    CGFloat red = colors[0];
+    CGFloat green = colors[1];
+    CGFloat blue = colors[2];
+    CGFloat alpha = colors[3];
+    
+    const CGFloat *mixColors = CGColorGetComponents(color.CGColor);
+    CGFloat mixRed = mixColors[0];
+    CGFloat mixGreen = mixColors[1];
+    CGFloat mixBlue = mixColors[2];
+    CGFloat mixAlpha = mixColors[3];
+    
+    mixRed = (mixRed + red) / 2.f;
+    mixGreen = (mixGreen + green) / 2.f;
+    mixBlue = (mixBlue + blue) / 2.f;
+    mixAlpha = (mixAlpha + alpha) / 2.f;
+    
+    UIColor *mixedColor = [UIColor colorWithRed:mixRed
+                                          green:mixGreen
+                                           blue:mixBlue
+                                          alpha:mixAlpha];
+    return mixedColor;
+}
+
 @end
