@@ -73,9 +73,9 @@
     CGFloat blue = colors[2];
     CGFloat alpha = colors[3];
     
-    red = red + (255.f - red) * amount;
-    green = green + (255.f - green) * amount;
-    blue = blue + (255.f - blue) * amount;
+    red = red + (1.f - red) * amount;
+    green = green + (1.f - green) * amount;
+    blue = blue + (1.f - blue) * amount;
     
     UIColor *lightenColor = [UIColor colorWithRed:red
                                             green:green
