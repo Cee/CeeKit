@@ -17,4 +17,7 @@ typedef unsigned int CeeColorType;
 + (UIColor *)colorWithRGBHexString:(NSString *)rgbHexString;
 + (UIColor *)colorWithRGBAHexString:(NSString *)rgbaHexString;
 
+- (UIColor *)darkenWithAmount:(double)amount;
+- (UIColor *)lightenWithAmount:(double)amount;
+
 @end

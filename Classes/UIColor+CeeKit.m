@@ -42,4 +42,46 @@
     return [scanner scanHexInt:&hexColor] ? [self colorWithRGBAHexColor:hexColor] : nil;
 }
 
+- (UIColor *)darkenWithAmount:(double)amount
+{
+    NSAssert(amount >= 0 && amount <= 1.f, @"Amount must be in range from 0 to 1.");
+    
+    const CGFloat *colors = CGColorGetComponents(self.CGColor);
+    CGFloat red = colors[0];
+    CGFloat green = colors[1];
+    CGFloat blue = colors[2];
+    CGFloat alpha = colors[3];
+    
+    red *= amount;
+    green *= amount;
+    blue *= amount;
+    
+    UIColor *darkenColor = [UIColor colorWithRed:red
+                                           green:green
+                                            blue:blue
+                                           alpha:alpha];
+    return darkenColor;
+}
+
+- (UIColor *)lightenWithAmount:(double)amount
+{
+    NSAssert(amount >= 0 && amount <= 1.f, @"Amount must be in range from 0 to 1.");
+    
+    const CGFloat *colors = CGColorGetComponents(self.CGColor);
+    CGFloat red = colors[0];
+    CGFloat green = colors[1];
+    CGFloat blue = colors[2];
+    CGFloat alpha = colors[3];
+    
+    red = red + (255.f - red) * amount;
+    green = green + (255.f - green) * amount;
+    blue = blue + (255.f - blue) * amount;
+    
+    UIColor *lightenColor = [UIColor colorWithRed:red
+                                            green:green
+                                             blue:blue
+                                            alpha:alpha];
+    return lightenColor;
+}
+
 @end
