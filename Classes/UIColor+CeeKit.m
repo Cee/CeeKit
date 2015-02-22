@@ -22,7 +22,7 @@
 {
     return [UIColor colorWithRed:(hexColor >> 24 & 0xFF) / 255.f
                            green:(hexColor >> 16 & 0xFF) / 255.f
-                            blue:(hexColor >> 18 & 0xFF) / 255.f
+                            blue:(hexColor >> 8 & 0xFF) / 255.f
                            alpha:(hexColor & 0xFF) / 255.f];
 }
 
