@@ -31,4 +31,14 @@
     return decodedString;
 }
 
+- (NSString *)trim
+{
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+- (BOOL)isEmpty
+{
+    return [self trim].length == 0;
+}
+            
 @end

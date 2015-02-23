@@ -12,5 +12,7 @@
 
 - (NSString *)URLEncodedString;
 - (NSString *)URLDecodedString;
+- (NSString *)trim;
+- (BOOL)isEmpty;
 
 @end
