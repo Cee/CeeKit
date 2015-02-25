@@ -76,7 +76,7 @@
     [self getRed:&red green:&green blue:&blue alpha:&alpha];
     
     CGFloat mixRed, mixGreen, mixBlue, mixAlpha;
-    [self getRed:&mixRed green:&mixGreen blue:&mixBlue alpha:&mixAlpha];
+    [color getRed:&mixRed green:&mixGreen blue:&mixBlue alpha:&mixAlpha];
     
     mixRed = (mixRed + red) / 2.f;
     mixGreen = (mixGreen + green) / 2.f;
