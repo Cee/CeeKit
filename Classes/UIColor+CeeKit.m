@@ -46,57 +46,37 @@
 {
     NSAssert(amount >= 0 && amount <= 1.f, @"Amount must be in range from 0 to 1.");
     
-    const CGFloat *colors = CGColorGetComponents(self.CGColor);
-    CGFloat red = colors[0];
-    CGFloat green = colors[1];
-    CGFloat blue = colors[2];
-    CGFloat alpha = colors[3];
+    CGFloat hue, saturation, brightness, alpha;
+    [self getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
     
-    red *= amount;
-    green *= amount;
-    blue *= amount;
-    
-    UIColor *darkenColor = [UIColor colorWithRed:red
-                                           green:green
-                                            blue:blue
+    UIColor *darkerColor = [UIColor colorWithHue:hue
+                                      saturation:saturation * (1.f + amount)
+                                      brightness:brightness * (1.f - amount)
                                            alpha:alpha];
-    return darkenColor;
+    return darkerColor;
 }
 
 - (UIColor *)lightenWithAmount:(double)amount
 {
     NSAssert(amount >= 0 && amount <= 1.f, @"Amount must be in range from 0 to 1.");
     
-    const CGFloat *colors = CGColorGetComponents(self.CGColor);
-    CGFloat red = colors[0];
-    CGFloat green = colors[1];
-    CGFloat blue = colors[2];
-    CGFloat alpha = colors[3];
+    CGFloat hue, saturation, brightness, alpha;
+    [self getHue:&hue saturation:&saturation brightness:&brightness alpha:&alpha];
     
-    red = red + (1.f - red) * amount;
-    green = green + (1.f - green) * amount;
-    blue = blue + (1.f - blue) * amount;
-    
-    UIColor *lightenColor = [UIColor colorWithRed:red
-                                            green:green
-                                             blue:blue
+    UIColor *lighterColor = [UIColor colorWithHue:hue
+                                       saturation:saturation * (1.f - amount)
+                                       brightness:brightness * (1.f + amount)
                                             alpha:alpha];
-    return lightenColor;
+    return lighterColor;
 }
 
 - (UIColor *)mixWithColor:(UIColor *)color
 {
-    const CGFloat *colors = CGColorGetComponents(self.CGColor);
-    CGFloat red = colors[0];
-    CGFloat green = colors[1];
-    CGFloat blue = colors[2];
-    CGFloat alpha = colors[3];
+    CGFloat red, green, blue, alpha;
+    [self getRed:&red green:&green blue:&blue alpha:&alpha];
     
-    const CGFloat *mixColors = CGColorGetComponents(color.CGColor);
-    CGFloat mixRed = mixColors[0];
-    CGFloat mixGreen = mixColors[1];
-    CGFloat mixBlue = mixColors[2];
-    CGFloat mixAlpha = mixColors[3];
+    CGFloat mixRed, mixGreen, mixBlue, mixAlpha;
+    [self getRed:&mixRed green:&mixGreen blue:&mixBlue alpha:&mixAlpha];
     
     mixRed = (mixRed + red) / 2.f;
     mixGreen = (mixGreen + green) / 2.f;
