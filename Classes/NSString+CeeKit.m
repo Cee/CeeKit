@@ -36,7 +36,7 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
-- (BOOL)isEmpty
+- (BOOL)isBlank
 {
     return [self trim].length == 0;
 }
