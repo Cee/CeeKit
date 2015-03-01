@@ -11,3 +11,5 @@
 
 #import "UIColor+CeeKit.h"
 #import "UIImage+CeeKit.h"
+
+#import "CeeMathHelper.h"
