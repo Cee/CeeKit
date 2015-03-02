@@ -12,8 +12,8 @@
 
 + (NSUInteger)generateRandomIntegerFrom:(unsigned int)min to:(unsigned int)max
 {
-    NSUInteger r = arc4random_uniform(max) + min;
-    return r;
+    NSUInteger intValue = arc4random_uniform(max) + min;
+    return intValue;
 }
 
 @end
