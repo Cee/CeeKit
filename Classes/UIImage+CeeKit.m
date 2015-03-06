@@ -29,4 +29,25 @@
     return image;
 }
 
++ (UIImage *)compatibleImageNamed:(NSString *)name
+{
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    NSString *suffix;
+    
+    if (height == 480) {
+        suffix = @"_iPhone4";
+    } else if (height == 568) {
+        suffix = @"_iPhone5";
+    } else if (IS_IPAD) {
+        suffix = @"_iPad";
+    } else if (height == 667) {
+        suffix = @"_iPhone6";
+    } else if (height == 736) {
+        suffix = @"_iPhone6p";
+    }
+    
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", name, suffix]];
+    return image;
+}
+
 @end

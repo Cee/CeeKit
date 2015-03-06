@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
 @interface UIImage (CeeKit)
 
 + (UIImage *)imageWithColor:(UIColor *)color;
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
++ (UIImage *)compatibleImageNamed:(NSString *)name;
 
 @end
